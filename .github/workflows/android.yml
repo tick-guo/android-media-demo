@@ -33,7 +33,7 @@ jobs:
       run: |
         pwd
         whoami
-        ll
+        ls -lah
         files=$(find . | grep -E "*.apk")
         for f in $files
         do
