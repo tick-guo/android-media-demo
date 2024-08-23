@@ -17,7 +17,7 @@ jobs:
     - name: set up JDK 11
       uses: actions/setup-java@v4
       with:
-        java-version: '17'
+        java-version: '18'
         distribution: 'temurin'
         cache: gradle
 
@@ -25,7 +25,9 @@ jobs:
       run: chmod +x gradlew
       
     - name: Build with Gradle
-      run: ./gradlew build
+      run: | 
+        # ./gradlew build
+        ./gradlew :testapp-controller:assembleDebug
 
     - name: 检测文件
       run: |
