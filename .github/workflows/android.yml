@@ -34,11 +34,13 @@ jobs:
         pwd
         whoami
         ls -lah
+        find . | grep -E "*.apk"
         files=$(find . | grep -E "*.apk")
+        echo files=$files
         for f in $files
         do
-           mkdir ./uploaddir
-           mv $f ./uploaddir/
+           mkdir -p uploaddir-tmp
+           mv $f uploaddir-tmp/
         done
         echo "----end----"
          
@@ -48,6 +50,6 @@ jobs:
         # Artifact name
         name: build-apk
         # A file, directory or wildcard pattern that describes what to upload
-        path: ./uploaddir/*
+        path: ./uploaddir-tmp/*
         # The desired behavior if no files are found using the provided path.
      
