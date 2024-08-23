@@ -34,8 +34,8 @@ jobs:
         pwd
         whoami
         ls -lah
-        find . | grep -E "*.apk"
-        files=$(find . | grep -E "*.apk")
+        find . | grep -E "*\.apk$"
+        files=$(find . | grep -E "*\.apk$")
         echo files=$files
         for f in $files
         do
